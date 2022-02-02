@@ -39,7 +39,7 @@ jobs:
                     file: ./Dockerfile
                     builder: ${{ steps.buildx.outputs.name }}
                     push: true
-                    tags: ${{ secrets.DOCKER_USERNAME }}/simplewhale:${{ $GITHUB_SHA }}
+                    tags: ${{ secrets.DOCKER_USERNAME }}/simplewhale:${{ GITHUB_SHA }}
                     cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
                     cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
             -   name: Image digest
